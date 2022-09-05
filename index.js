@@ -1,6 +1,9 @@
 import { readFileSync } from "fs";
 import { createServer } from "http";
 import { parse } from "url";
+
+import slugify from "slugify";
+
 import replaceTemplate from "./modules/replaceTemplate.js";
 
 // fs.readFile("./txt/start.txt", { encoding: "utf-8" }, (err1, data1) => {
@@ -20,6 +23,10 @@ import replaceTemplate from "./modules/replaceTemplate.js";
 
 const productData = readFileSync("./dev-data/data.json", "utf-8");
 const dataObj = JSON.parse(productData);
+
+// const slugs = dataObj.map((el) => slugify(el.productName, { lower: true }));
+// console.log(slugs);
+
 const overviewTemp = readFileSync(
     "./templates/template-overview.html",
     "utf-8"
