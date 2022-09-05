@@ -1,4 +1,4 @@
-module.exports = function (template, product) {
+export default function (template, product) {
     let output = template.replace(/{%PRODUCTNAME%}/g, product.productName);
     output = output.replace(/{%IMAGE%}/g, product.image);
     output = output.replace(/{%FROM%}/g, product.from);
@@ -11,4 +11,4 @@ module.exports = function (template, product) {
         output = output.replace(/{%NOT_ORGANIC%}/g, "not-organic");
 
     return output;
-};
+}

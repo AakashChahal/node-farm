@@ -1,0 +1,26 @@
+{
+    "name": "node-farm",
+    "version": "1.0.0",
+    "description": "learning NodeJs ",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "start": "nodemon index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/AakashChahal/node-farm.git"
+    },
+    "author": "Aakash Chahal",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/AakashChahal/node-farm/issues"
+    },
+    "homepage": "https://github.com/AakashChahal/node-farm#readme",
+    "dependencies": {
+        "slugify": "^1.6.5"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.19"
+    }
+}

@@ -1,7 +1,7 @@
-const fs = require("fs");
-const http = require("http");
-const url = require("url");
-const replaceTemplate = require("./modules/replaceTemplate");
+import { readFileSync } from "fs";
+import { createServer } from "http";
+import { parse } from "url";
+import replaceTemplate from "./modules/replaceTemplate.js";
 
 // fs.readFile("./txt/start.txt", { encoding: "utf-8" }, (err1, data1) => {
 //     fs.readFile(`./txt/${data1}.txt`, { encoding: "utf-8" }, (err2, data2) => {
@@ -18,20 +18,17 @@ const replaceTemplate = require("./modules/replaceTemplate");
 //     });
 // });
 
-const productData = fs.readFileSync("./dev-data/data.json", "utf-8");
+const productData = readFileSync("./dev-data/data.json", "utf-8");
 const dataObj = JSON.parse(productData);
-const overviewTemp = fs.readFileSync(
+const overviewTemp = readFileSync(
     "./templates/template-overview.html",
     "utf-8"
 );
-const productTemp = fs.readFileSync(
-    "./templates/template-product.html",
-    "utf-8"
-);
-const cardTemp = fs.readFileSync("./templates/template-card.html", "utf-8");
+const productTemp = readFileSync("./templates/template-product.html", "utf-8");
+const cardTemp = readFileSync("./templates/template-card.html", "utf-8");
 
-const server = http.createServer((req, res) => {
-    const { query, pathname: pathName } = url.parse(req.url);
+const server = createServer((req, res) => {
+    const { query, pathname: pathName } = parse(req.url);
 
     if (pathName === "/overview" || pathName === "/") {
         res.writeHead(200, {
